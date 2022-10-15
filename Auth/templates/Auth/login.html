@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+{% load static %} 
+
+{% block cssfiles %}
+  <link rel="stylesheet" href="{% static 'Home/css/index.css' %}">
+{% endblock cssfiles %}
+
+{% block title %}
+    Login 
+{% endblock title %}
+
+{% block body %}
+
+{% if error_message %}
+<div class="alert alert-dismissible alert-danger">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>Oh snap!</strong> <a href="#" class="alert-link">{{error_message}}</a> and try submitting again.
+</div>
+{% endif %}
+
+<form style="margin:1rem;" method="POST" action="{% url 'loginUser' %}">
+  {% csrf_token %}
+  <fieldset>
+    <legend class="display-flex display-center">Login</legend>
+    <div class="form-group">
+      {% if type %}
+        <label class="alert alert-dismissible alert-warning">Only {{type}} Can Login!</label>
+      {% endif %}
+      <div class="form-floating mb-3">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+    </div>
+</div>
+    <input type="submit" class="btn btn-primary" id="submit">
+  </fieldset>
+</form>
+{% endblock body %}
+
+{% block jsfiles %}
+    <script src=" {% static 'js/script.js' %} "></script>
+{% endblock jsfiles %}

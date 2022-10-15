@@ -1,8 +1,10 @@
-from django.urls import path
+from xml.etree.ElementInclude import include
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('login/', views.login, name='login'),
+    path('login/<str:type>', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
-    path('getPassword/', views.getPassword, name='get_password')
+    path('login/getPassword/', views.getPassword, name='getPassword'),
+    path('home/', include('Home.urls')),
 ]
