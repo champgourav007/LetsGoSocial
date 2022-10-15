@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block cssfiles %}
+  <link rel="stylesheet" href="{% static 'Home/css/index.css' %}">
+{% endblock cssfiles %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block body %}
+<div class="display-flex display-center login-btn">
+  <a href="{% url 'loginView' 'savages' %}"  class="btn btn-lg btn-outline-primary login-btn-width m-2" type="button">Savages</a>
+  <a href="{% url 'loginView' 'mitragun' %}"  class="btn btn-lg btn-outline-primary login-btn-width m-2" type="button">Mitragun</a>
+  <a href="{% url 'loginView' 'others' %}"  class="btn btn-lg btn-outline-primary login-btn-width m-2" type="button">Others</a>
+</div>
+{% endblock body %}

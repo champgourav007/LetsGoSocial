@@ -1,0 +1,24 @@
+.display-flex{
+    display: flex;
+}
+
+.display-center{
+    justify-content: center;
+}
+
+.display-column{
+    flex-direction: column;
+}
+
+.login-btn{
+    margin-top: 10rem;   
+}
+
+.login-btn-width{
+    width: 50%;
+}
+
+a{
+    font-style: none;
+    color:white;
+}
